@@ -44,9 +44,8 @@ export async function loginAssessment(data){
 
 
 export async function loginAdminAssessment(data){
-    console.log( "server :" , ServerValue.main, "| data :", data)
     try{
-        let question = await fetch("http://10.0.2.2:3000" + "/api/login"
+        let question = await fetch(ServerValue.main+ "/api/login"
         , {
             method: 'POST',
             headers: {
