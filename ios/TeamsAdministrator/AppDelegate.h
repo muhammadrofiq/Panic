@@ -4,11 +4,14 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+#import <UserNotifications/UNUserNotificationCenter.h>
 #import <React/RCTBridgeDelegate.h>
 #import <UIKit/UIKit.h>
+#import <FirebaseMessaging.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
+@import UserNotifications;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate,UNUserNotificationCenterDelegate,FIRMessagingDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 

@@ -87,7 +87,7 @@
 		04E28B25BA95403BA83C165F /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ThinItalic.ttf"; path = "../assets/fonts/Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		0B1554CCE3B84C869113495E /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../assets/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		1055A62DCF9B4ACC91FCD027 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* TeamsAdministrator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamsAdministrator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Panic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Panic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TeamsAdministrator/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = TeamsAdministrator/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -132,6 +132,7 @@
 		B3042F3723E0444BB2DFE9EC /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		B74052BB486B6E91734E53B7 /* Pods-TeamsAdministrator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamsAdministrator.debug.xcconfig"; path = "Target Support Files/Pods-TeamsAdministrator/Pods-TeamsAdministrator.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D7A06C248CFCEC007FBA9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C1D7A06E248D27D1007FBA9C /* TeamsAdministrator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TeamsAdministrator.entitlements; path = TeamsAdministrator/TeamsAdministrator.entitlements; sourceTree = "<group>"; };
 		C2C064FC80BA41308D718862 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		C4A67F1B1905E724AB9798B4 /* Pods-TeamsAdministratorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamsAdministratorTests.release.xcconfig"; path = "Target Support Files/Pods-TeamsAdministratorTests/Pods-TeamsAdministratorTests.release.xcconfig"; sourceTree = "<group>"; };
 		C837ED792EA14E7F9A2010F2 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
@@ -205,6 +206,7 @@
 		13B07FAE1A68108700A75B9A /* TeamsAdministrator */ = {
 			isa = PBXGroup;
 			children = (
+				C1D7A06E248D27D1007FBA9C /* TeamsAdministrator.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				C1D7A06C248CFCEC007FBA9C /* GoogleService-Info.plist */,
@@ -271,7 +273,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* TeamsAdministrator.app */,
+				13B07F961A680F5B00A75B9A /* Panic.app */,
 				00E356EE1AD99517003FC87E /* TeamsAdministratorTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* TeamsAdministrator-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* TeamsAdministrator-tvOSTests.xctest */,
@@ -365,7 +367,7 @@
 			);
 			name = TeamsAdministrator;
 			productName = TeamsAdministrator;
-			productReference = 13B07F961A680F5B00A75B9A /* TeamsAdministrator.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Panic.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* TeamsAdministrator-tvOS */ = {
@@ -419,6 +421,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = W4H9PSS645;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -805,8 +810,10 @@
 			baseConfigurationReference = B74052BB486B6E91734E53B7 /* Pods-TeamsAdministrator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeamsAdministrator/TeamsAdministrator.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = W4H9PSS645;
 				INFOPLIST_FILE = TeamsAdministrator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -814,8 +821,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = TeamsAdministrator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teams.panic;
+				PRODUCT_NAME = Panic;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -825,7 +832,9 @@
 			baseConfigurationReference = D07087A8D1D80F64FE733F10 /* Pods-TeamsAdministrator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeamsAdministrator/TeamsAdministrator.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W4H9PSS645;
 				INFOPLIST_FILE = TeamsAdministrator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -833,8 +842,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = TeamsAdministrator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teams.panic;
+				PRODUCT_NAME = Panic;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

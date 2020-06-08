@@ -74,23 +74,14 @@ export default class App2 extends React.Component {
     getUserData = async () => {
         try {
             const value = await AsyncStorage.getItem("userData")
+            console.log("local value:",value)
             if (value !== null) {
-
-                // this.unsubscribe = messaging().onMessage(async remoteMessage => {
-                //     // console.log("hahah ada pesan :" , remoteMessage.notification)
-                //     this.testPush(remoteMessage.notification.title, remoteMessage.notification.body)
-                // });
-
-                // messaging().setBackgroundMessageHandler(async remoteMessage => {
-                //     console.log('Message handled in the background!', remoteMessage);
-                // });
 
                 this.setState({
                     loading: false,
                     adaDataLocal: true,
                     userData: value
                 })
-                // this.props.navigation.navigate('Home');
             } else {
                 this.setState({
                     loading: false,
@@ -98,8 +89,8 @@ export default class App2 extends React.Component {
                 })
             }
         } catch (e) {
-            // console.log("filed get local data :" + e)
-            Alert.alert("Information!", 'Get Data Failed')
+            console.log("filed get local data :" , e)
+            Alert.alert("Information!", 'Get Data Failed app')
             clearAll((error) => {
                 if (error) {
                 }

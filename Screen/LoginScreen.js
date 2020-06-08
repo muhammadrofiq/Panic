@@ -273,24 +273,6 @@ class loginScreenMain extends Component {
                                 }
                             </LinearGradient>
                         </View>
-                        {
-                            Platform.OS === 'android' ?
-                                null
-                                :
-                                <View>
-                                    <View style={{ borderWidth: 0.4, borderColor: constants.darkSoftBlue, marginRight: 16, marginLeft: 16, marginTop: 16 }}></View>
-                                    <View style={{ marginTop: 24 }}>
-                                        <LinearGradient useAngle={true} angle={45} colors={["#f15887", "#fe9b86"]} style={{ marginRight: 20, marginLeft: 20, borderRadius: 30 }}>
-                                            <TouchableHighlight onPress={() => { this.props.onRegisterClicked() }} >
-                                                <Text style={{ letterSpacing: 2, fontSize: 14, margin: 12, color: constants.themeWhite, textAlign: "center", fontFamily: "Montserrat-Medium" }}>
-                                                    REGISTER
-                                            </Text>
-                                            </TouchableHighlight>
-                                        </LinearGradient>
-                                    </View>
-                                </View>
-
-                        }
 
                     </ScrollView>
                 </View>

@@ -1,8 +1,9 @@
 
+import ServerValue from './../../value/Server';
 export async function getUserData(data){
     console.log("get user data body" , data)
     try{
-        let question = await fetch('http://10.0.2.2:3000/api/get-user'
+        let question = await fetch( ServerValue.main +'/api/get-user'
         , {
             method: 'POST',
             headers: {
@@ -46,7 +47,7 @@ export async function resetPassword(data){
 
 export async function insertUser(data){
     try{
-        let question = await fetch('http://10.0.2.2:3000/api/insert-user'
+        let question = await fetch(ServerValue.main+ '/api/insert-user'
         , {
             method: 'POST',
             headers: {

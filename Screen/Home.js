@@ -10,7 +10,10 @@ import { Card, Drawer, CardItem, Container, Header, Title, Content, Footer, Foot
 import SideBar from './component/Sidebar';
 import { TouchableHighlight, TouchableWithoutFeedback, TouchableNativeFeedback } from 'react-native-gesture-handler';
 import PushNotification from "react-native-push-notification"
+import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import messaging from '@react-native-firebase/messaging';
+import ServerValue from './../value/Server';
+import PushNotification2 from '../value/IosNotif';
 
 import {
     LineChart,
@@ -32,26 +35,32 @@ class Home extends Component {
         };
         this.getUserData()
         this.getStatistik()
-
-        this.socket = io("http://10.0.2.2:3000/");
+        console.log("server:", ServerValue.main)
+        this.socket = io(ServerValue.main);
         this.socket.on("join", msg => {
             console.log("ada yang masuk nih! ,", msg)
         });
 
         this.unsubscribe = messaging().onMessage(async remoteMessage => {
-            console.log(remoteMessage)
-            this.testPush(remoteMessage.notification.title, remoteMessage.notification.body)
+            console.log("remote  message :",remoteMessage)
+            if (Platform.os === 'android') {
+                this.testPush(remoteMessage.notification.title, remoteMessage.notification.body)
+            } else{
+                this.testPush(remoteMessage.data.notification.title,remoteMessage.data.notification.body)
+            }
         });
 
         messaging()
             .subscribeToTopic('global')
             .then(() => console.log('Subscribed to topic!'));
+
+        this.notification = new PushNotification2(this.onNotification);
     }
 
-    testPush(title,message) {
+    testPush(title, message) {
         PushNotification.localNotification({
             title: title, // (optional, for iOS this is only used in apple watch, the title will be the app name on other iOS devices)
-            message:message// (required)
+            message: message// (required)
         });
     }
 
@@ -111,7 +120,7 @@ class Home extends Component {
                 this.setState({
                     isFetchLogin: false
                 })
-                // this.handleLogin(response, userData.password)
+                this.socket.emit('join', userData.nama);
             } else {
                 //DO NAVIGATE TO LOGIN
                 if (Platform.os === 'android') {
@@ -152,8 +161,6 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.socket.emit('join', "ROFIQ");
-        // this.testPush()
     };
 
     clearAsyncStorage = async () => {
@@ -161,7 +168,7 @@ class Home extends Component {
     }
 
     render() {
-        console.log("user data di home :", this.props.userData)
+        console.log("user data di home :", this.props.userData, "fetch login status :", this.state.isFetchLogin)
         if (
             !this.state.isFetchLogin
         ) {
