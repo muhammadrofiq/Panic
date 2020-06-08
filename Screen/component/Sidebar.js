@@ -18,7 +18,7 @@ export default class Sidebar extends Component {
                 </Header>
                 <Content padder>
                     <ScrollView>
-                        <Text style={{ marginBottom: 8 }} >{"WELCOME "+ this.props.getUserData().nama.toUpperCase()}</Text>
+                        <Text style={{ marginBottom: 8, fontFamily: "Montserrat-Medium" }} >{"WELCOME , "+ this.props.getUserData().nama.toUpperCase()}</Text>
                         <ListItem icon
                             onPress={() => {
                                 this.props.navigation.navigate('Anggota')

@@ -1,11 +1,11 @@
 
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import { View, Alert, Platform, ActivityIndicator, Dimensions, Image, ToastAndroid } from 'react-native';
 import io from "socket.io-client";
 import AsyncStorage from '@react-native-community/async-storage';
 import { loginAdminAssessment } from './../manager/connection/loginConnectionManager';
 import { getStatistikUserDataTahunan } from './../manager/connection/statistikConnectionManager';
-import { View, Alert, Platform, ActivityIndicator, Dimensions, Image } from 'react-native';
 import { Card, Drawer, CardItem, Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import SideBar from './component/Sidebar';
 import { TouchableHighlight, TouchableWithoutFeedback, TouchableNativeFeedback } from 'react-native-gesture-handler';
@@ -42,11 +42,13 @@ class Home extends Component {
         });
 
         this.unsubscribe = messaging().onMessage(async remoteMessage => {
-            console.log("remote  message :",remoteMessage)
-            if (Platform.os === 'android') {
+            console.log("remote  message :", remoteMessage+ " | platfom :" , Platform.OS)
+            if (Platform.OS === 'android') {
                 this.testPush(remoteMessage.notification.title, remoteMessage.notification.body)
-            } else{
-                this.testPush(remoteMessage.data.notification.title,remoteMessage.data.notification.body)
+                console.log("push notif local android :")
+            } else {
+                console.log("push notif local Ios :")
+                this.testPush(remoteMessage.data.notification.title, remoteMessage.data.notification.body)
             }
         });
 
@@ -59,6 +61,9 @@ class Home extends Component {
 
     testPush(title, message) {
         PushNotification.localNotification({
+            vibrate:true,
+            // smallIcon:"ic_launcher",
+
             title: title, // (optional, for iOS this is only used in apple watch, the title will be the app name on other iOS devices)
             message: message// (required)
         });
@@ -203,45 +208,17 @@ class Home extends Component {
                         </Header>
                         <Content padder>
                             <View style={{ marginTop: 32, alignContent: "center", alignItems: "center", flex: 1 }}>
-                                {/* <Text style={{ fontSize: 14, fontFamily: "Montserrat-Light" }}>Jumlah Karyawan Aktif</Text>
-                                <LineChart
-                                    data={{
-                                        labels: this.state.label,
-                                        datasets: [
-                                            {
-                                                data: this.state.dataSet
-                                            }
-                                        ]
-                                    }}
-                                    width={Dimensions.get("window").width - 16} // from react-native
-                                    height={220}
-                                    // yAxisLabel="$"
-                                    // yAxisSuffix="k"
-                                    yAxisInterval={1} // optional, defaults to 1
-                                    chartConfig={{
-                                        backgroundColor: "#e26a00",
-                                        backgroundGradientFrom: "#fb8c00",
-                                        backgroundGradientTo: "#ffa726",
-                                        decimalPlaces: 0, // optional, defaults to 2dp
-                                        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                                        labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                                        style: {
-                                            borderRadius: 16
-                                        },
-                                        propsForDots: {
-                                            r: "6",
-                                            strokeWidth: "2",
-                                            stroke: "#ffa726"
-                                        }
-                                    }}
-                                    bezier
-                                    style={{
-                                        marginVertical: 8,
-                                        borderRadius: 16
-                                    }}
-                                /> */}
                                 <TouchableWithoutFeedback onPress={() => {
                                     console.log("button pressed")
+                                    if (Platform.OS === 'android') {
+                                        ToastAndroid.showWithGravityAndOffset(
+                                            "Send Notif to All User",
+                                            ToastAndroid.LONG,
+                                            ToastAndroid.BOTTOM,
+                                            25,
+                                            50
+                                        );
+                                    }
                                     this.socket.emit('panic', JSON.parse(this.props.userData).nama);
                                 }}>
                                     <Image style={{ width: Dimensions.get('window').width - 64, height: Dimensions.get('window').width - 64 }} source={require('./../assets/panicButton.png')} />
